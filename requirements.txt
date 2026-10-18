@@ -1,0 +1,22 @@
+# 音乐流行趋势预测 - 运行环境
+# Python 3.13（3.10+ 均可）
+# 安装：pip install -r requirements.txt
+#
+# ⚠️ 必须使用 pandas 2.x（本文件锁定 2.2.3）：
+#    问题二中 groupby(...).apply(...) 依赖「分组键保留在结果中」的旧版行为，
+#    pandas 3.0 起该行为被移除，会导致 KeyError: 'artist_id'（详见结果文件/日志）。
+#    问题三在 pandas 3.0 下可运行，但为保持两问口径一致，统一使用 2.2.3。
+#
+# 说明：notebook 原运行环境无 tensorflow，问题三的 LSTM 在代码中被跳过
+#      （对比表中 LSTM 一行为 999 占位值），实际参与对比的是 LightGBM 与 XGBoost。
+
+pandas==2.2.3
+numpy==2.2.6
+scipy==1.18.1
+scikit-learn==1.9.1
+matplotlib==3.11.2
+seaborn==0.13.2
+lightgbm==4.7.0
+xgboost==3.4.1
+optuna==5.0.0
+pulp==4.0.1
