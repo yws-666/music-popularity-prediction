@@ -61,3 +61,9 @@ jupyter notebook "3.ipynb"
 - **必须使用 pandas 2.x**（已锁定 2.2.3）：问题二的 `groupby.apply` 依赖旧版分组键行为，pandas 3.0 会报错，详见 requirements.txt 注释
 - 问题一 ANOVA p 值与论文逐位一致；随机森林指标与论文偏差 <1%（库版本差异）
 - 问题三代码注释中标注：LSTM 因原环境无 tensorflow 未参与最终对比，实际为 LightGBM vs XGBoost 两模型对比
+
+## 数据来源
+
+数据来源于 2025 年珠海科技学院数学建模竞赛 B 题官方附件（脱敏音乐平台行为数据），仅用于学习与教学。
+
+- 声明详情：见 [数据来源声明.md](数据来源声明.md)（数据范围：`数据与题目/数据1_songs.csv、数据与题目/数据2_user_actions.csv（分卷）`）
