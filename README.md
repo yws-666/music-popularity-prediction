@@ -20,17 +20,31 @@
 ## 目录结构
 
 ```
-├── 1 and 2.ipynb    # 问题一（关键因素）+ 问题二（推广优化）完整代码
-├── 3.ipynb          # 问题三（60 天播放量预测）完整代码
-├── 数据1_songs.csv        # 歌曲元数据（2.4 万首）
-├── models/          # LightGBM 最优模型与编码器
-├── artist_daily_plays_predictions_201509-201510.csv  # 预测输出
-├── suggest_artists.csv               # 推荐艺人输出
-├── 图片/、结果文件/                    # 论文图表与复现日志
-└── requirements.txt                   # 运行环境（版本已锁定并验证可复现）
+├── 1 and 2.ipynb          # 问题一（关键因素）+ 问题二（推广优化）完整代码
+├── 3.ipynb                # 问题三（60 天播放量预测）完整代码
+├── 数据与题目/
+│   ├── 2025珠海科技学院--数学建模竞赛--B题--音乐平台流行趋势.doc   # 竞赛题目
+│   ├── 数据1_songs.csv    # 歌曲元数据（2.4 万首）
+│   └── 数据2_user_actions.csv.part00 ~ part14              # 用户行为数据（1.4 GB，分卷存储）
+├── models/                # LightGBM 最优模型与编码器
+├── 结果文件/
+│   ├── artist_daily_plays_predictions_201509-201510.csv    # 60 天播放量预测输出
+│   └── suggest_artists.csv                                 # 推荐艺人输出
+├── 图片/                  # 论文图表
+└── requirements.txt       # 运行环境（版本已锁定并验证可复现）
 ```
 
-> ⚠️ 原始用户行为数据 `数据2_user_actions.csv`（1.4 GB）超出 GitHub 单文件限制，未包含在仓库中。
+## 数据文件还原
+
+`数据2_user_actions.csv`（1.4 GB）超过 GitHub 单文件 100 MB 限制，以 95 MB 分卷存储。下载整个仓库后合并还原：
+
+```bash
+# Linux / macOS / Git Bash
+cat 数据与题目/数据2_user_actions.csv.part* > 数据与题目/数据2_user_actions.csv
+
+# Windows CMD
+copy /b 数据与题目\数据2_user_actions.csv.part* 数据与题目\数据2_user_actions.csv
+```
 
 ## 运行方式
 
@@ -39,6 +53,8 @@ pip install -r requirements.txt
 jupyter notebook "1 and 2.ipynb"   # 依次运行全部单元格
 jupyter notebook "3.ipynb"
 ```
+
+> 运行前请将 `数据1_songs.csv`、`数据2_user_actions.csv` 放在 notebook 同级目录（代码按根目录相对路径读取）。
 
 ## 复现说明
 
